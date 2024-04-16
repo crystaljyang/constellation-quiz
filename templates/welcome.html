@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="centered-content">
+  <div class="centered-text">
+    <b>Learn to spot constellations with your naked eye.</b>
+  </div>
+  <div class="button-group">
+    <button class="start-button" onclick="location.href='{{ url_for('learn') }}'">Learn the stars</button>
+    <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Test my knowledge</button>
+  </div>
+</div>
+{% endblock %}
