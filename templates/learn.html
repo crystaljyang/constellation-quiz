@@ -3,7 +3,14 @@
 {% block content %}
 <div class="centered-content">
   <div class="centered-text">
-    <b>This is the learning page.</b>
+    <b>What constellation would you like to learn about first?.</b>
+    <ul>
+        <li>Cygnus</li>
+        <li>Orion</li>
+        <li>Ursa Major</li>
+        <li>Ursa Minor</li>
+        <li>Cassiopeia</li>
+      </ul>
   </div>
   <div class="button-group">
     <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Start the quiz</button>

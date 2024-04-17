@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="centered-content">
+
+<div class="welcome-bg">
+<div class="centered-content" >
   <div class="centered-text">
     <b>Learn to spot constellations with your naked eye.</b>
   </div>
@@ -9,5 +11,6 @@
     <button class="start-button" onclick="location.href='{{ url_for('learn') }}'">Learn the stars</button>
     <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Test my knowledge</button>
   </div>
+</div>
 </div>
 {% endblock %}
