@@ -78,15 +78,19 @@ def welcome():
 
 @app.route('/learn')
 def learn():
-   pass
+   return render_template('learn.html')   
 
 @app.route('/quiz')
 def quiz():
-   pass
+   return render_template('quiz.html')   
 
 @app.route('/search')
 def search():
    pass
+
+@app.route('/hello')
+def hello():
+   return render_template('welcome.html')
 
 if __name__ == '__main__':
    app.run(debug = True)
