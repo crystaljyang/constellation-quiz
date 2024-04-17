@@ -5,7 +5,9 @@
   <div class="centered-text">
     <b>What constellation would you like to learn about first?.</b>
     <ul>
-        <li>Cygnus</li>
+        {% for item in popular_constellations %}
+                <a href="/view/{{ item.id }}">thi is {{ item.name }}</a>
+        {% endfor %}
         <li>Orion</li>
         <li>Ursa Major</li>
         <li>Ursa Minor</li>

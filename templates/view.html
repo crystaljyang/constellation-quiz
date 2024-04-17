@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="centered-text">
+<br>
+<h1>{{ item['name'] }}</h1>
+<br>
+Year: {{ item['season'] }}
+<br>
+Genres: {{ item['hemisphere'] }}
+<br>
+Number of Stars: {{ item['number of stars'] }}
+<br>
+Brightest Star: {{ item['brightest star'] }}
+<br>
+Characteristics: {{ item['characteristics'] }}
+<br>
+Namesake: {{ item['namesake'] }}
+<br>
+
+<img href="./static/images/cygnus-ss.png" alt="{{ item.name }}">
+
+</div>
+
+
+
+{% endblock %}
