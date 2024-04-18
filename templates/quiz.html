@@ -3,10 +3,20 @@
 {% block content %}
 <div class="centered-content">
   <div class="centered-text">
+    <h1>Test your knowledge on {{ item['name'] }}</h1>
     <b>This is the quiz page.</b>
+    <p>You are connecting so many dots rn it's crazy<p>
   </div>
+
+  {% if item.id < 5 %}
   <div class="button-group">
-    <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Start the quiz</button>
+      <button class="start-button" onclick="location.href='/view/{{ item.id + 1}}'">Next constellation: {{ item.name }}</button>
   </div>
+{% else %}
+  <div class="button-group">
+      <button class="start-button" onclick="location.href='/summary'">View results!</button>
+  </div>
+{% endif %}
+
 </div>
 {% endblock %}
