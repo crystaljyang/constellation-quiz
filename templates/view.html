@@ -21,9 +21,15 @@ Namesake: {{ item['namesake'] }}
 
 <img href="./static/images/cygnus-ss.png" alt="{{ item.name }}">
 
-    <div class="button-group">
-        <button class="start-button" onclick="location.href='{{ url_for('view')}}'">Next Constellatoin</button>
-    </div>
+    {% if item.id < 5 %}
+        <div class="button-group">
+            <button class="start-button" onclick="location.href='/view/{{ item.id + 1 }}'">Next Constellation</button>
+        </div>
+    {% else %}
+        <div class="button-group">
+            <button class="start-button" onclick="location.href='/quiz'">Take the Quiz!</button>
+        </div>
+    {% endif %}
 
 </div>
 
