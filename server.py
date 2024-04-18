@@ -23,7 +23,7 @@ popular_constellations = [
         'number of stars': '7',
         'brightest star': 'Polaris',
         'characteristics': 'The Little Dipper is a circumpolar constellation, meaning it is visible year-round in the Northern Hemisphere. It is part of the Ursa Minor constellation, which is the 56th largest constellation in the sky. The Little Dipper is made up of seven bright stars that form a shape that looks like a small ladle or dipper. The two stars that form the front of the ladle are called the Guardians because they guard the North Star, Polaris. The Little Dipper is also known as the Little Bear in Latin.',
-        'image': './media/little-dipper-ss.png',
+        'image': './media/little-dipper-ss.jpg',
         'namesake': 'The Little Dipper is named after its resemblance to a small ladle or dipper. The word "dipper" comes from the Old English word "dyppan," which means "to dip." The word "ladle" comes from the Old English word "hlædel," which means "a vessel for drawing out liquid." The Little Dipper is also known as the Little Bear in Latin.',
     },
     {
@@ -56,7 +56,7 @@ popular_constellations = [
         'number of stars': '7',
         'brightest star': 'Rigel',
         'characteristics': 'Orion is one of the most recognizable constellations in the sky. It is named after the mythological hunter Orion, who is often depicted holding a bow and arrow. Orion is best seen in the winter months in the Northern Hemisphere and is known for its distinctive shape, which resembles a hunter with a belt and sword. The constellation is home to several bright stars, including Betelgeuse and Rigel. Orion is part of the Orion family of constellations and is located near the Taurus and Gemini constellations.',
-        'image': './media/orion-ss.png',
+        'image': './media/orion-ss.jpg',
         'namesake': 'Orion is named after the mythological hunter Orion, who is often depicted holding a bow and arrow. In Greek mythology, Orion was a skilled hunter who was placed in the sky by the goddess Artemis after his death. The constellation is best seen in the winter months in the Northern Hemisphere and is known for its distinctive shape, which resembles a hunter with a belt and sword. Orion is also associated with several myths and legends from various cultures around the world.',
     },
 ]
