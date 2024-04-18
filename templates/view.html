@@ -19,7 +19,7 @@ Characteristics: {{ item['characteristics'] }}
 Namesake: {{ item['namesake'] }}
 <br>
 
-<img href="./static/images/cygnus-ss.png" alt="{{ item.name }}">
+<img src="{{ url_for('static', filename='images/' + item.image)}}" alt="{{ item.name}}">
 
     {% if item.id < 5 %}
         <div class="button-group">
