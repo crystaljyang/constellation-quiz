@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 popular_constellations = [
     {
-        'id': '1',
+        'id': 1,
         'name': 'Ursa Major (Big Dipper)',
         'season': 'Spring',
         'hemisphere': 'Northern',
@@ -16,7 +16,7 @@ popular_constellations = [
         'namesake': 'The Big Dipper is named after its resemblance to a large ladle or dipper. The word "dipper" comes from the Old English word "dyppan," which means "to dip." The word "ladle" comes from the Old English word "hlædel," which means "a vessel for drawing out liquid." The Big Dipper is also known as the Plough in the United Kingdom and Ireland.',               
     },
     {
-        'id': '2',
+        'id': 2,
         'name': 'Ursa Minor (Little Dipper)',
         'season': 'Spring',
         'hemisphere': 'Northern',
@@ -27,7 +27,7 @@ popular_constellations = [
         'namesake': 'The Little Dipper is named after its resemblance to a small ladle or dipper. The word "dipper" comes from the Old English word "dyppan," which means "to dip." The word "ladle" comes from the Old English word "hlædel," which means "a vessel for drawing out liquid." The Little Dipper is also known as the Little Bear in Latin.',
     },
     {
-        'id': '3',
+        'id': 3,
         'name': 'Cygnus (Northern Cross)',
         'season': 'Summer',
         'hemisphere': 'Northern',
@@ -38,7 +38,7 @@ popular_constellations = [
         'namesake': 'Cygnus is named after the Latin word for swan. In Greek mythology, Cygnus is associated with several myths, including the story of Zeus and Leda. According to legend, Zeus transformed himself into a swan to seduce Leda, the queen of Sparta. The union between Zeus and Leda produced several children, including Helen of Troy and the twins Castor and Pollux. Cygnus is also associated with the story of Orpheus, a legendary musician who was transformed into a swan after his death.',
     },
     {
-        'id': '4',
+        'id': 4,
         'name': 'Cassiopeia',
         'season': 'Fall',
         'hemisphere': 'Northern',
@@ -49,7 +49,7 @@ popular_constellations = [
         'namesake': 'Cassiopeia is named after the queen of Aethiopia in Greek mythology. According to legend, Cassiopeia was the wife of King Cepheus and the mother of Princess Andromeda. She was known for her beauty and vanity, which ultimately led to her downfall. Cassiopeia was placed in the sky as a punishment for her arrogance, where she is forced to circle the North Star for eternity. The constellation is also known as the "Celestial W" because of its distinctive shape.',
     },
     {
-        'id': '5',
+        'id': 5,
         'name': 'Orion',
         'season': 'Winter',
         'hemisphere': 'Northern',
@@ -88,9 +88,7 @@ def view_item(id):
     if item:
         return render_template('view.html', item=item)
     else:
-        return "Item not found", 404
-
-
+        return "Item not found. Why is it not found??", 404
 
 if __name__ == '__main__':
    app.run(debug = True)
