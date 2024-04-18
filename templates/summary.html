@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="centered-content">
+    <div class="centered-text">
+        <h1>Quiz Summary Page</h1>
+        <h2>Accuracy:</h2>
+        {% for item in popular_constellations %}
+            <a >{{ item.name }}<br></a>
+        {% endfor %}
+    </div>
+    
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='{{ url_for('learn') }}'">Restart</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
