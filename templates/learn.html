@@ -3,7 +3,7 @@
 {% block content %}
 <div class="centered-content">
   <div class="centered-text">
-    <b>What constellation would you like to learn about first?.</b>
+    <b>Which constellation would you like to learn about first?.</b>
         <br>
         {% for item in popular_constellations %}
                 <a href="/view/{{ item.id }}">this is {{ item.name }}<br></a>
@@ -11,7 +11,7 @@
 
   </div>
   <div class="button-group">
-    <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Start the quiz</button>
+    <button class="start-button" onclick="location.href='{{ url_for('quiz') }}'">Let's go</button>
   </div>
 </div>
 {% endblock %}
