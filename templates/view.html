@@ -6,9 +6,9 @@
 <br>
 <h1>{{ item['name'] }}</h1>
 <br>
-Year: {{ item['season'] }}
+Season: {{ item['season'] }}
 <br>
-Genres: {{ item['hemisphere'] }}
+Hemisphere: {{ item['hemisphere'] }}
 <br>
 Number of Stars: {{ item['number of stars'] }}
 <br>
@@ -20,6 +20,10 @@ Namesake: {{ item['namesake'] }}
 <br>
 
 <img href="./static/images/cygnus-ss.png" alt="{{ item.name }}">
+
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='{{ url_for('view')}}'">Next Constellatoin</button>
+    </div>
 
 </div>
 
