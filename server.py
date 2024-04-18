@@ -65,9 +65,14 @@ popular_constellations = [
 def welcome():
    return render_template('welcome.html')   
 
-@app.route('/learn')
-def learn():
-   return render_template('learn.html', popular_constellations=popular_constellations)   
+# LEARN
+@app.route('/learn/<int:id>')
+def learn_item(id):
+    item = next((item for item in popular_constellations if item['id'] == id), None)
+    if item:
+        return render_template('learn.html', item=item)
+    else:
+        return "Item not found. Why is it not found??", 404   
 
 @app.route('/quiz')
 def quiz():
@@ -89,6 +94,7 @@ def view_item(id):
         return render_template('view.html', item=item)
     else:
         return "Item not found. Why is it not found??", 404
+
 
 if __name__ == '__main__':
    app.run(debug = True)
