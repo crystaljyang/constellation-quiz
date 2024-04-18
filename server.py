@@ -67,7 +67,7 @@ def welcome():
 
 @app.route('/learn')
 def learn():
-   return render_template('learn.html')   
+   return render_template('learn.html', popular_constellations=popular_constellations)   
 
 @app.route('/quiz')
 def quiz():
