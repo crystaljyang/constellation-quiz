@@ -23,7 +23,7 @@ Namesake: {{ item['namesake'] }}
 
     {% if item.id < 5 %}
         <div class="button-group">
-            <button class="start-button" onclick="location.href='/view/{{ item.id + 1 }}'">Next Constellation</button>
+            <button class="start-button" onclick="location.href='/learn/{{ item.id }}'">Learn to spot {{ item.name }} in the sky</button>
         </div>
     {% else %}
         <div class="button-group">
