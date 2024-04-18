@@ -19,23 +19,12 @@ Characteristics: {{ item['characteristics'] }}
 Namesake: {{ item['namesake'] }}
 <br>
 
-<div class="button-group">
-    <button class="start-button" onclick="location.href=/learn/{{ item.id }}">Next</button>
-  </div>
-<img src="{{ url_for('static', filename='images/' + item.image) }}" alt="{{ item.name }}">
+<img src="{{ url_for('static', filename='images/' + item.image)}}" alt="{{ item.name}}">
 
-    {% if item.id < 5 %}
-        <div class="button-group">
-            <button class="start-button" onclick="location.href='/learn/{{ item.id }}'">Learn to spot {{ item.name }} in the sky</button>
-        </div>
-    {% else %}
-        <div class="button-group">
-            <button class="start-button" onclick="location.href='/quiz'">Take the Quiz!</button>
-        </div>
-    {% endif %}
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='/learn/{{ item.id }}'">Learn to spot {{ item.name }} in the sky</button>
+    </div>
 
 </div>
-
-
 
 {% endblock %}
