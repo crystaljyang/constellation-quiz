@@ -74,6 +74,17 @@
   margin-bottom: 30px;
 }
 .const-poster {
-  max-width: 300px;
+  max-width: 100%;
+  height: auto;
   margin-bottom: 20px;
+}
+
+.navbar-custom {
+  background-color: black;
+}
+
+canvas {
+  background: white;
+  border: 2px solid red;
+  cursor: crosshair;
 }
