@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div class="container">
 <div class="centered-content">
   <div class="centered-text">
     <b>The key things to keep in mind when looking for {{ item.name }} in the night sky are:</b>
@@ -11,5 +12,6 @@
   <div class="button-group">
     <button class="start-button" onclick="location.href='/quiz/{{ item.id }}'">Test your knowledge of {{ item.name }}</button>
   </div>
+</div>
 </div>
 {% endblock %}

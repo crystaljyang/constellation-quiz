@@ -9,9 +9,9 @@
   </div>
 
   {% if item.id < 5 %}
-  <div class="button-group">
-      <button class="start-button" onclick="location.href='/view/{{ item.id + 1}}'">Next constellation: {{ item.name }}</button>
-  </div>
+    <div class="button-group">
+        <button class="start-button" onclick="location.href='/view/{{ item.id +1 }}'">Next constellation</button>
+    </div>
 {% else %}
   <div class="button-group">
       <button class="start-button" onclick="location.href='/summary'">View results!</button>
