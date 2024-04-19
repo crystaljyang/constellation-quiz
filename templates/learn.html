@@ -1,17 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="container">
-<div class="centered-content">
+  <br>
   <div class="centered-text">
     <b>The key things to keep in mind when looking for {{ item.name }} in the night sky are:</b>
-        <br>
-        <img src="{{ url_for('static', filename='images/' + item.image)}}" alt="{{ item.name}}">
-
+    <br>
+    <img src="{{ url_for('static', filename='images/' + item.image)}}" alt="{{ item.name}}">
   </div>
   <div class="button-group">
     <button class="start-button" onclick="location.href='/quiz/{{ item.id }}'">Test your knowledge of {{ item.name }}</button>
   </div>
-</div>
-</div>
+
 {% endblock %}
