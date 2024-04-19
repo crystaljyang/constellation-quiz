@@ -22,7 +22,8 @@
 
     <title>Let's Learn Constellations 🌠 </title>
   </head>
-  <body>
+  <!-- the bg img is here - it won't change size on diff pages even if the images on the page are super big-->
+  <body class="bg-image">
     
 
     
@@ -34,8 +35,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/learn">Constellations</a>
-        <a class="nav-link" href="/quiz">Constellation quiz</a>
+        <a class="nav-link" href="/learn/1">Constellations</a>
+        <a class="nav-link" href="/quiz/1">Constellation quiz</a>
         <a class="nav-link" href="/summary">Quiz Summary</a> <!-- this is for debugging -->
 
       </div>
@@ -43,9 +44,10 @@
   </div>
 </nav>
 
-    <div class="welcome-bg">
+      <div class="body-container">
         {% block content %}
         {% endblock %}
+      </div>
     </div>
 
   </body>

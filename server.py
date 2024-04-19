@@ -72,11 +72,15 @@ def learn_item(id):
     if item:
         return render_template('learn.html', item=item)
     else:
-        return "Item not found. Why is it not found??", 404   
+        return "Item not found", 404   
 
-@app.route('/quiz')
-def quiz():
-   return render_template('quiz.html')   
+@app.route('/quiz/<int:id>')
+def quiz_item(id):
+    item = next((item for item in popular_constellations if item['id'] == id), None)
+    if item:
+        return render_template('quiz.html', item=item)
+    else:
+        return "Item not found", 404   
 
 @app.route('/summary')
 def summary():
@@ -93,7 +97,7 @@ def view_item(id):
     if item:
         return render_template('view.html', item=item)
     else:
-        return "Item not found. Why is it not found??", 404
+        return "Item not found", 404
 
 
 if __name__ == '__main__':
