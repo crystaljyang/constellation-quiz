@@ -6,7 +6,7 @@ app = Flask(__name__)
 popular_constellations = [
     {
         'id': 1,
-        'name': 'Ursa Major (Big Dipper)',
+        'name': 'Ursa Major',
         'season': 'Spring',
         'hemisphere': 'Northern',
         'number of stars': '19',

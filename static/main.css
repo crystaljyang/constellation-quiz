@@ -1,4 +1,6 @@
-
+body, html {
+  background-color: black;
+}
 
 .welcome-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
@@ -76,7 +78,7 @@
 .const-poster {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .navbar-custom {
@@ -87,4 +89,18 @@ canvas {
   background: white;
   border: 2px solid red;
   cursor: crosshair;
+  margin-bottom: 50px;
+}
+
+.learn-img {
+  width: 600px;
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+.learn-image {
+  max-width: 500px; /* Set maximum width for the images */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure images are displayed as blocks */
+  margin-bottom: 50px;
 }
