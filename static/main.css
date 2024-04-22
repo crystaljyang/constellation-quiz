@@ -104,3 +104,10 @@ canvas {
   display: block; /* Ensure images are displayed as blocks */
   margin-bottom: 50px;
 }
+
+.navbar-star-icon {
+  background-color: #8075FF;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 24px; /* Adjust the size of the star */
+}
