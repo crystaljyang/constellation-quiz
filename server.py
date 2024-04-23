@@ -6,7 +6,7 @@ app = Flask(__name__)
 popular_constellations = [
     {
         'id': 1,
-        'name': 'Ursa Major (Big Dipper)',
+        'name': 'Ursa Major',
         'season': 'Spring',
         'hemisphere': 'Northern',
         'number of stars': '19',
@@ -60,6 +60,8 @@ popular_constellations = [
         'namesake': 'Orion is named after the mythological hunter Orion, who is often depicted holding a bow and arrow. In Greek mythology, Orion was a skilled hunter who was placed in the sky by the goddess Artemis after his death. The constellation is best seen in the winter months in the Northern Hemisphere and is known for its distinctive shape, which resembles a hunter with a belt and sword. Orion is also associated with several myths and legends from various cultures around the world.',
     },
 ]
+
+
 
 @app.route('/')
 def welcome():
