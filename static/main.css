@@ -27,7 +27,7 @@ body, html {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #007bff;
+  background-color: #8075FF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -82,36 +82,78 @@ body, html {
   margin-bottom: 50px;
 }
 
-/*QUIZ PAGE*/
+.navbar-star-icon {
+  background-color: #8075FF;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 24px; /* Adjust the size of the star */
+}
+
+
+
+.lightgrey {
+  color: #BDBDBE; 
+}
+
+.darkgrey {
+  color: #5B5B5C; /* Dark grey color for "You made it through the quiz..." */
+}
+
+.centered-table {
+  margin-left: auto;
+  margin-right: auto; /* Centering the table */
+}
+
+.centered-table td {
+  text-align: left; /* Text inside table cells left-aligned */
+}
+
+.high-score {
+  font-weight: bold;
+  color: #8075FF; /* Accent color and bold for scores above 80% */
+}
+
+.aligned-text {
+  padding-top: 20px;
+  padding-left: 400px;
+  text-align: left;
+  width: 100%; /* Full width for proper alignment and padding effect */
+}
+
+.bigfont {
+  font-size: 24px; /* Larger font size for the text */
+}
+
+/*
 #canvas-container {
-    position: relative;
-    padding-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
 #canvas-container canvas {
-    display: block; /* Ensures the canvas appears as a block element */
-    margin: 0 auto; /* Centers the canvas horizontally */
+  display: block; 
+  margin: 0 auto; 
 }
-/*SUMMARY PAGE*/
 
 .score-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .score-table th, .score-table td {
-    padding: 8px;
-    text-align: left;
+  padding: 8px;
+  text-align: left;
 }
 .score-table th {
-    background-color: #f4f4f4;
-    color: black;
+  background-color: #f4f4f4;
+  color: black;
 }
 .score-table td {
-    border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .score-table .name {
-    text-align: left;
+  text-align: left;
 }
 .score-table .score {
-    text-align: right;
+  text-align: right;
 }
+*/

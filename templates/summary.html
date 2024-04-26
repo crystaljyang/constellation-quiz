@@ -1,30 +1,48 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
 <div class="centered-content">
-    <div class="centered-text">
-        <h1>Great job!</h1>
-        <h2>You made it through the quiz. Here's how you did: {{ score }}/4</h2>
-        <table class="score-table">
-            <thead>
-                <tr>
-                    <th class="name">Star Name</th>
-                    <th class="score">Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for name, score in scoreBoard %}
-                <tr>
-                    <td class="name">{{ name }}</td>
-                    <td class="score">{{ score }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="aligned-text">
+        <h1 class="lightgrey">GREAT JOB!</h1>
+        <p class="darkgrey bigfont">You made it through the quiz. Here's how you did:</p>
     </div>
+        <table class="centered-table lightgrey">
+            {% for name, accuracy in results.items() %}
+            <tr>
+                <td class="{{ 'high-score' if accuracy > 80 else '' }}">&rarr;&nbsp;</td>
+                <td class="{{ 'high-score' if accuracy > 80 else '' }}">{{ name }}</td>
+                <td class="{{ 'high-score' if accuracy > 80 else '' }}">{{ accuracy }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    
+    <div class="aligned-text">
+        <p class="lightgrey bigfont">You are {{ overall_accuracy }}% accurate star gazer!</p>
+    <!--
+        <div class="centered-text">
+            <h1>Great job!</h1>
+            <h2>You made it through the quiz. Here's how you did: {{ score }}/4</h2>
+            <table class="score-table">
+                <thead>
+                    <tr>
+                        <th class="name">Star Name</th>
+                        <th class="score">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name, score in scoreBoard %}
+                    <tr>
+                        <td class="name">{{ name }}</td>
+                        <td class="score">{{ score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    -->
     <div class="button-group">
-        <button class="start-button" onclick="location.href='/view/1'">START AGAIN</button>
+        <button class="start-button lightgrey" onclick="location.href='/view/1'">START AGAIN</button>
     </div>
 </div>
 

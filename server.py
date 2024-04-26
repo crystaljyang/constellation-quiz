@@ -1,6 +1,6 @@
-from flask import Flask
-from flask import render_template
-from flask import Response, request, jsonify
+from flask import Flask, render_template, Response, request, jsonify
+import random
+
 app = Flask(__name__)
 global popular_constellations
 correct = [0,0,0,0]
@@ -57,8 +57,23 @@ popular_constellations = [
         'points': [[80,259],[224,291],[298,208],[422,253],[448,102]],
         'answers': [[1],[0,2],[1,3],[2,4],[3]],
     },
+    {
+        'id': 5,
+        'name': 'Orion',
+        'season': 'Winter',
+        'hemisphere': 'Northern',
+        'number of stars': '7',
+        'brightest star': 'Rigel',
+        'characteristics': 'Orion is one of the most recognizable constellations in the sky. It is named after the mythological hunter Orion, who is often depicted holding a bow and arrow. Orion is best seen in the winter months in the Northern Hemisphere and is known for its distinctive shape, which resembles a hunter with a belt and sword. The constellation is home to several bright stars, including Betelgeuse and Rigel. Orion is part of the Orion family of constellations and is located near the Taurus and Gemini constellations.',
+        'image': 'orion-ss.jpg',
+        'namesake': 'Orion is named after the mythological hunter Orion, who is often depicted holding a bow and arrow. In Greek mythology, Orion was a skilled hunter who was placed in the sky by the goddess Artemis after his death. The constellation is best seen in the winter months in the Northern Hemisphere and is known for its distinctive shape, which resembles a hunter with a belt and sword. Orion is also associated with several myths and legends from various cultures around the world.',
+    },
 ]
 
+user_data = {}
+for item in popular_constellations:
+    random_accuracy = random.randint(70, 100)
+    user_data[item['id']] = {'correct': int(item['number of stars']) * random_accuracy / 100, 'attempts': int(item['number of stars'])}
 
 
 @app.route('/')
@@ -104,16 +119,39 @@ def submit_result():
 
 @app.route('/summary')
 def summary():
-    score = 0
-    scoreBoard = []
-    for i in correct:  # Assuming correct is a dictionary available in this context
-        if correct[i] == 1:
-            score += 1
-            print(score)
-    for constellation in popular_constellations:
-        scoreBoard.append((constellation['name'], correct[(constellation['id']-1)]))  # Add the name and score to the scoreboard
-    print(scoreBoard)
-    return render_template('summary.html', score=score, scoreBoard=scoreBoard)
+    # Calculate accuracy for each constellation
+    results = {}
+    total_correct = 0
+    total_attempts = 0
+    for item in popular_constellations:
+        id = item['id']
+        if user_data[id]['attempts'] > 0:
+            accuracy = round(100 * user_data[id]['correct'] / user_data[id]['attempts'])
+        else:
+            accuracy = 0
+        results[item['name']] = accuracy
+        total_correct += user_data[id]['correct']
+        total_attempts += user_data[id]['attempts']
+
+    # Calculate overall accuracy
+    if total_attempts > 0:
+        overall_accuracy = round(100 * total_correct / total_attempts)
+    else:
+        overall_accuracy = 0
+
+    return render_template('summary.html', results=results, overall_accuracy=overall_accuracy)
+
+# def summary():
+#     score = 0
+#     scoreBoard = []
+#     for i in correct:  # Assuming correct is a dictionary available in this context
+#         if correct[i] == 1:
+#             score += 1
+#             print(score)
+#     for constellation in popular_constellations:
+#         scoreBoard.append((constellation['name'], correct[(constellation['id']-1)]))  # Add the name and score to the scoreboard
+#     print(scoreBoard)
+#     return render_template('summary.html', score=score, scoreBoard=scoreBoard)
 
 @app.route('/hello')
 def hello():
