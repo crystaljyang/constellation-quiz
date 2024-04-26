@@ -1,28 +1,17 @@
 body, html {
   background-color: black;
 }
-
-.welcome-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/hemisphere-boreal.jpg');
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-size: cover;
-  position: relative;
-}
-
+/*GENERAL*/
 .centered-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh; 
+  height: 80vh;
   text-align: center;
 }
-
 .centered-text {
-  font-size: 24px; 
+  font-size: 24px;
   margin-bottom: 20px;
   color:white;
 }
@@ -30,7 +19,8 @@ body, html {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 20px; 
+  gap: 20px;
+  padding:5px;
 }
 
 .start-button {
@@ -46,8 +36,16 @@ body, html {
 .start-button:hover {
   background-color: orange;
 }
-
-
+.lower{
+  padding-top:20px
+}
+/*LAYOUT*/
+.navbar-star-icon {
+  background-color: #8075FF;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 24px; /* Adjust the size of the star */
+}
 /* Define a CSS class for the background image */
 .bg-image {
   /* Set background image */
@@ -61,43 +59,22 @@ body, html {
   /* Set min height to ensure image covers the whole page */
   min-height: 100vh;
 }
-
 .body-container {
   margin: 50px;
   color: white;
 }
+.navbar-custom {
+  background-color: black;
+}
 
-.const-title {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-.const-info {
-  margin-bottom: 30px;
-}
+/*VIEW*/
 .const-poster {
   max-width: 100%;
   height: auto;
   margin-bottom: 50px;
 }
 
-.navbar-custom {
-  background-color: black;
-}
-
-canvas {
-  background: white;
-  border: 2px solid red;
-  cursor: crosshair;
-  margin-bottom: 50px;
-}
-
-.learn-img {
-  width: 600px;
-  height: 400px;
-  margin-bottom: 50px;
-}
-
+/*LEARN*/
 .learn-image {
   max-width: 500px; /* Set maximum width for the images */
   height: auto; /* Maintain aspect ratio */
@@ -105,9 +82,36 @@ canvas {
   margin-bottom: 50px;
 }
 
-.navbar-star-icon {
-  background-color: #8075FF;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 24px; /* Adjust the size of the star */
+/*QUIZ PAGE*/
+#canvas-container {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#canvas-container canvas {
+    display: block; /* Ensures the canvas appears as a block element */
+    margin: 0 auto; /* Centers the canvas horizontally */
+}
+/*SUMMARY PAGE*/
+
+.score-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.score-table th, .score-table td {
+    padding: 8px;
+    text-align: left;
+}
+.score-table th {
+    background-color: #f4f4f4;
+    color: black;
+}
+.score-table td {
+    border-bottom: 1px solid #ddd;
+}
+.score-table .name {
+    text-align: left;
+}
+.score-table .score {
+    text-align: right;
 }
