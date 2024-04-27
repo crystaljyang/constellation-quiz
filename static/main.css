@@ -23,6 +23,13 @@ body, html {
   height: 70vh;
   text-align: center;
 }
+
+.centered-contented {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 0;
+}
 .centered-text {
   font-size: 24px;
   margin-bottom: 20px;
@@ -137,24 +144,20 @@ body, html {
 }
 
 /*LEARN*/
-.learn-image {
-  max-width: 500px; /* Set maximum width for the images */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure images are displayed as blocks */
-  margin-bottom: 50px;
+.learn_img {
+  max-height: 400px;  /* Maximum height */
+  max-width: 100%;    /* Maximum width to maintain aspect ratio */
+  height: auto;       /* Maintain aspect ratio */
+  width: auto;        /* Maintain aspect ratio */
 }
+
+
 .lh{
   font-family: 'Space Mono', monospace;
   font-weight: 900;
 }
 .lsh{
   color:
-}
-.learn_img{
-  margin: 0;
-  margin-top: 4vh;
-  max-width: 100%;
-  margin-bottom: 50px;
 }
 /*QUIZ PAGE*/
 #canvas-container {

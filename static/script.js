@@ -8,7 +8,7 @@ function setup() {
     points = constellationData.points;
     correctMatch = [constellationData.answers];
     consl = [constellationData.id];
-
+    imgBig = loadImage("../static/images/"+[constellationData.imageq]);
     noCanvas();  // This ensures P5 doesn't create an automatic canvas.
     let canvas = createCanvas(950, 650);
     canvas.parent('canvas-container');
@@ -22,10 +22,14 @@ function setup() {
 
 function draw() {
   if (typeof constellationData !== 'undefined') {
-    background('#2f4258');
+    background(imgBig);
     displayPoints();
     displayConnected();
     displayElastic();
+    // Display mouse coordinates
+    if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) { // Check if mouse is within canvas
+      text(`X: ${mouseX}, Y: ${mouseY}`, mouseX + 10, mouseY + 20); // Display coordinates near the mouse cursor
+    }
   }
 }
 
@@ -36,11 +40,10 @@ function displayPoints() {
         var x = o[0];
         var y = o[1];
         noFill();
-        fill(255);
-        stroke(0);
+        noStroke()
         circle(x, y, pointRadius * 2);
         fill(255);
-        //text(i, x + pointRadius + 2, y + 5);
+        text(i, x + pointRadius + 2, y + 5);
 }
 }
 
@@ -66,6 +69,7 @@ function connectPoints(pi1, pi2) {
     var p1 = points[pi1];
     var p2 = points[pi2];
     push();
+    stroke(255); // Set the stroke color to white
     strokeWeight(5);
     line(p1[0], p1[1], p2[0], p2[1]);
     pop();
@@ -75,6 +79,7 @@ function displayElastic() {
     if (nextPoint <= 0 || selectedPoints.length === 0)
         return;
     var lastSelectedPoint = points[selectedPoints[selectedPoints.length - 1]];
+    stroke(255); // Set the stroke color to white
     line(lastSelectedPoint[0], lastSelectedPoint[1], mouseX, mouseY);
 }
 
