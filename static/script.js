@@ -7,7 +7,7 @@ function setup() {
   if (typeof constellationData !== 'undefined') {
     points = constellationData.points;
     correctMatch = [constellationData.answers];
-    consl = [constellationData.id];
+    consl = (constellationData.id);
     imgBig = loadImage("../static/images/"+[constellationData.imageq]);
     noCanvas();  // This ensures P5 doesn't create an automatic canvas.
     let canvas = createCanvas(950, 650);
@@ -141,24 +141,37 @@ function buildConnectionMap(points, pointsSelected) {
     return connectionMap;
 }
 
-function isCorrect(correctMatch, input) {
-    const correctFormatted = correctMatch.map(subArray =>
-        subArray.map(pair => pair.sort((a, b) => a - b).join(',')).join('|')
+function calculateAccuracy(correctMatches, input) {
+    // Format all correct answers into a set for easy lookup
+    const correctSet = new Set(
+        correctMatches.flatMap(correctMatch =>
+            correctMatch.map(pair => pair.sort((a, b) => a - b).join(','))
+        )
     );
+
+    // Format and count input matches
     const inputFormatted = input.map(pair =>
-        pair.slice().sort((a, b) => a - b).join(',')
-    ).join('|');
-    return correctFormatted.includes(inputFormatted);
+        pair.sort((a, b) => a - b).join(',')
+    );
+
+    // Count how many inputs are correct
+    const correctCount = inputFormatted.reduce((count, pair) => {
+        return count + (correctSet.has(pair) ? 1 : 0);
+    }, 0);
+
+    // Calculate the accuracy percentage
+    const accuracy = (correctCount / input.length) * 100;
+
+    return accuracy.toFixed(0);  // Returns the accuracy as a percentage string with 2 decimal places
 }
+
 
 
 
 function submitPoints() {
   let connections = buildConnectionMap(points, selectedPoints);
-  let isSuccess = isCorrect(correctMatch, connections);
+  let isSuccess = calculateAccuracy(correctMatch, connections);
   let currentId = consl; // Ensure this is defined somewhere in your script, possibly injected from Flask template
-
-  console.log(isSuccess ? "Successful" : "Unsuccessful");
 
   // Reset game state
   moves = 0;
@@ -172,7 +185,8 @@ function submitPoints() {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-          success: isSuccess,
+          score: isSuccess,
+          answer: connections,
           id: currentId
       })
   }).then(response => response.json())

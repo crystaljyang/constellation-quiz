@@ -1,9 +1,11 @@
+import datetime
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
 global popular_constellations
 correct = [0,0,0,0]
+userInput = []
 popular_constellations = [
     {
         'id': 1,
@@ -72,17 +74,27 @@ popular_constellations = [
     },
 ]
 
-
-
 @app.route('/')
 def welcome():
-   return render_template('welcome.html')
+    data_dict = {
+        'page': 'welcome',
+        'time': datetime.datetime.now()
+    }
+    userInput.append(data_dict)
+    print(userInput)
+    return render_template('welcome.html')
 
 # LEARN
 @app.route('/learn/<int:id>')
 def learn_item(id):
     item = next((item for item in popular_constellations if item['id'] == id), None)
     if item:
+        data_dict = {
+            'page': 'learn',
+            'id': id,
+            'time': datetime.datetime.now()
+        }
+        userInput.append(data_dict)
         return render_template('learn.html', item=item)
     else:
         return "Item not found", 404
@@ -91,6 +103,12 @@ def learn_item(id):
 def quiz_item(id):
     item = next((item for item in popular_constellations if item['id'] == id), None)
     if item:
+        data_dict = {
+            'page': 'quiz',
+            'id': id,
+            'time': datetime.datetime.now()
+        }
+        userInput.append(data_dict)
         return render_template('quiz.html', item=item)
     else:
         return "Item not found", 404
@@ -103,12 +121,20 @@ def submit_result():
 
     #print("Received result:", json_data)
     # Parsing the JSON data
-    success_value = int(json_data['success'])  # Convert boolean to int (True -> 1, False -> 0)
-    name_key = int(json_data['id'][0])  # Assume 'name' key contains a list with at least one element
+    success_value = json_data['score']  # Convert boolean to int (True -> 1, False -> 0)
+    name_key = int(json_data['id'])  # Assume 'name' key contains a list with at least one element
+    connections = json_data['answer']
     correct[(name_key-1)] = success_value
-
-    print(correct)
-
+    print(type(success_value))
+    data_dict = {
+        'page': 'submit-result',
+        'id': name_key,
+        'score': success_value,
+        'input':connections,
+        'time': datetime.datetime.now()
+    }
+    userInput.append(data_dict)
+    print
     return jsonify({
         "status": "success",
         "message": "Result processed successfully",
@@ -119,24 +145,46 @@ def submit_result():
 def summary():
     score = 0
     scoreBoard = []
-    for i in correct:  # Assuming correct is a dictionary available in this context
-        if correct[i] == 1:
-            score += 1
-            print(score)
+    scores = []
+    print
     for constellation in popular_constellations:
-        scoreBoard.append((constellation['name'], correct[(constellation['id']-1)]))  # Add the name and score to the scoreboard
+        percentage = correct[(constellation['id']-1)]
+        scores.append(int(percentage))
+        scoreBoard.append((constellation['name'], str(correct[(constellation['id']-1)])+'%'))  # Add the name and score to the scoreboard
+    if scores:
+        score = sum(scores) / len(scores)
+    else:
+        score = 0
+
     print(scoreBoard)
+    data_dict = {
+        'page': 'summary',
+        'time': datetime.datetime.now()
+    }
+    userInput.append(data_dict)
+    score = str(int(score))+'%'
     return render_template('summary.html', score=score, scoreBoard=scoreBoard)
 
 @app.route('/hello')
 def hello():
-   return render_template('welcome.html')
+    data_dict = {
+        'page': 'hello',
+        'time': datetime.datetime.now()
+    }
+    userInput.append(data_dict)
+    return render_template('welcome.html')
 
 # VIEW
 @app.route('/view/<int:id>')
 def view_item(id):
     item = next((item for item in popular_constellations if item['id'] == id), None)
     if item:
+        data_dict = {
+            'page': 'view',
+            'id': id,
+            'time': datetime.datetime.now()
+        }
+        userInput.append(data_dict)
         return render_template('view.html', item=item)
     else:
         return "Item not found", 404
