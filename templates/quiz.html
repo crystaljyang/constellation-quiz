@@ -5,18 +5,25 @@
   var constellationData = {{ item | tojson | safe }};
 </script>
 <div class="body-container">
-    <div class="text-center">
-      <h1>Test your knowledge on {{ item['name'] }}</h1>
-      <b>This is the quiz page.</b>
-      <p>You are connecting so many dots rn it's crazy<p>
-    </div>
-
     <div class="container">
       <div class="row justify-content-center">
-        <div id="canvas-container" class="col-md-8"></div>
-        <div class="col-md-7">
-          <button id="butt-Submit" class="col-3 btn btn-success start-button">Submit</button>
-          <button id="butt-Undo" class="btn btn-light">Undo</button>
+        <div class="col-md-3">
+            <div class="qh">
+              Where is {{ item.name }}?
+            </div>
+            <div class="container qinstr">
+              <span class="material-symbols-outlined">arrow_selector_tool</span>Use your cursor to connect stars
+            </div>
+            <div class="container qnote">
+              <b>Note:</b> Find his body, you don’t need to find his arms.
+            </div>
+            <div class="button-group qbutton vertical">
+              <button id="butt-Undo" class="row btn btn-light fbu">Undo</button>
+              <button id="butt-Submit" class="row btn start-button fbsb">Submit</button>
+            </div>
+        </div>
+        <div class="col-md-9 ">
+          <div id="canvas-container"></div>
         </div>
       </div>
     </div>
