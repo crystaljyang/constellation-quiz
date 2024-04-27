@@ -2,12 +2,25 @@ body, html {
   background-color: black;
 }
 /*GENERAL*/
+.logo_edits{
+  color: white;
+  font-size: 24px;
+}
+.logo_edits:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.brand_color {
+    color: #5B5B5C !important;
+}
+
 .centered-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 70vh;
   text-align: center;
 }
 .centered-text {
@@ -22,19 +35,17 @@ body, html {
   gap: 20px;
   padding:5px;
 }
-
 .start-button {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #007bff;
+  background-color: #8075FF;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
 .start-button:hover {
-  background-color: orange;
+  background-color: white;
 }
 .lower{
   padding-top:20px
@@ -66,11 +77,62 @@ body, html {
 .navbar-custom {
   background-color: black;
 }
+#navbarNavAltMarkup .nav-link {
+    color: #BDBDBE;  /* Specific color */
+}
 
+.navbar-nav .nav-link {
+    margin-right: 40px; /* Adds space between the links */
+    color: #007bff; /* Example blue color */
+}
+.navbar-nav .nav-link:last-child {
+    margin-right: 0; /* Removes margin on the right for the last link */
+}
+
+/*WELCOME*/
+.fbh {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 9vh;
+}
+.fbs {
+  font-family: 'Mulish', sans-serif;
+  font-size: 2.5vh;
+}
+.fbsb{
+  padding: 10px 60px 10px 60px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 3vh;
+}
+.white{
+  color: white;
+}
+.back{
+  background-color: #adadadff;
+  color: #303030;
+}
 /*VIEW*/
+.vh{
+  font-size: 6vh;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+
+}
+.vsh{
+  font-family: 'Mulish', sans-serif;
+  font-size: 3vh;
+  color: white;
+}
+.vsc{
+  font-family: 'Mulish', sans-serif;
+  font-size: 2vh;
+  color: #adadad;
+}
 .const-poster {
+  margin-top: 4vh;
   max-width: 100%;
-  height: auto;
   margin-bottom: 50px;
 }
 
@@ -81,7 +143,19 @@ body, html {
   display: block; /* Ensure images are displayed as blocks */
   margin-bottom: 50px;
 }
-
+.lh{
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+}
+.lsh{
+  color:
+}
+.learn_img{
+  margin: 0;
+  margin-top: 4vh;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
 /*QUIZ PAGE*/
 #canvas-container {
     position: relative;
@@ -91,6 +165,49 @@ body, html {
 #canvas-container canvas {
     display: block; /* Ensures the canvas appears as a block element */
     margin: 0 auto; /* Centers the canvas horizontally */
+}
+.qh{
+  font-size: 4.5vh;
+  font-family: 'Space Mono', monospace;
+  font-weight: 900;
+  position: center;
+
+}
+.qinstr {
+  display: flex;           /* Establishes this div as a flex container */
+  align-items: center;     /* Vertically centers the content in the container */
+  justify-content: flex-start; /* Horizontally aligns content to the start; change as needed */
+  padding: 25px;
+  margin-top: 20px;
+  background-color: #eeff41;
+  color: #303030;
+}
+.qnote {
+  display: flex;           /* Establishes this div as a flex container */
+  padding: 30px;
+  margin-top: 20px;
+  background-color: #303030ff;
+  color: white;
+}
+.qbutton{
+  margin-top: 20px;
+}
+.material-symbols-outlined {
+    color: black; /* Outline color */
+    text-shadow:white; /* Fill effect */
+    font-size: 24px; /* Adjust size as needed */
+    transform: scaleX(-1);
+}
+.button-group.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.fbu{
+  padding: 10px 60px 10px 60px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: black;
+  font-size: 3vh;
 }
 /*SUMMARY PAGE*/
 
