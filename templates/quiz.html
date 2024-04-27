@@ -4,28 +4,28 @@
 <script>
   var constellationData = {{ item | tojson | safe }};
 </script>
-<div class="body-container">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-3">
-            <div class="qh">
-              Where is {{ item.name }}?
-            </div>
-            <div class="container qinstr">
-              <span class="material-symbols-outlined">arrow_selector_tool</span>Use your cursor to connect stars
-            </div>
-            <div class="container qnote">
-              <b>Note:</b> Find his body, you don’t need to find his arms.
-            </div>
-            <div class="button-group qbutton vertical">
-              <button id="butt-Undo" class="row btn btn-light fbu">Undo</button>
-              <button id="butt-Submit" class="row btn start-button fbsb">Submit</button>
-            </div>
-        </div>
-        <div class="col-md-9 ">
-          <div id="canvas-container"></div>
-        </div>
+<div class="row">
+  <br>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-3">
+      <div class="qh white">
+        <br>
+        Where is {{ item.name }}?
       </div>
-    </div>
+      <div class="container qinstr">
+        <span class="material-symbols-outlined">arrow_selector_tool</span>Use your cursor to connect stars
+      </div>
+      <div class="container qnote">
+        <b>Note:</b> Find his body, you don’t need to find his arms.
+      </div>
+      <div class="button-group qbutton vertical">
+        <button id="butt-Undo" class="row btn btn-light fbu">Undo</button>
+        <button id="butt-Submit" class="row btn start-button fbsb">Submit</button>
+      </div>
+  </div>
+  <div class="col-md-9">
+    <div id="canvas-container"></div>
+  </div>
 </div>
 {% endblock %}

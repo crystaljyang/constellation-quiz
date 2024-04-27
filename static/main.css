@@ -158,19 +158,14 @@ body, html {
 }
 /*QUIZ PAGE*/
 #canvas-container {
-    position: relative;
     padding-bottom: 10px;
 }
 
-#canvas-container canvas {
-    display: block; /* Ensures the canvas appears as a block element */
-    margin: 0 auto; /* Centers the canvas horizontally */
-}
 .qh{
-  font-size: 4.5vh;
+  font-size: 4.3vh;
   font-family: 'Space Mono', monospace;
   font-weight: 900;
-  position: center;
+  text-align: center;
 
 }
 .qinstr {

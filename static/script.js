@@ -10,7 +10,7 @@ function setup() {
     consl = [constellationData.id];
 
     noCanvas();  // This ensures P5 doesn't create an automatic canvas.
-    let canvas = createCanvas(600, 400);
+    let canvas = createCanvas(950, 650);
     canvas.parent('canvas-container');
     select('#butt-Submit').mouseClicked(submitPoints);
     select('#butt-Undo').mouseClicked(undoLastSelection);
