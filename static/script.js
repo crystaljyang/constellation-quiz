@@ -27,9 +27,9 @@ function draw() {
     displayConnected();
     displayElastic();
     // Display mouse coordinates
-    if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) { // Check if mouse is within canvas
-      text(`X: ${mouseX}, Y: ${mouseY}`, mouseX + 10, mouseY + 20); // Display coordinates near the mouse cursor
-    }
+    //if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) { // Check if mouse is within canvas
+    //  text(`X: ${mouseX}, Y: ${mouseY}`, mouseX + 10, mouseY + 20); // Display coordinates near the mouse cursor
+    //}
   }
 }
 
@@ -43,7 +43,7 @@ function displayPoints() {
         noStroke()
         circle(x, y, pointRadius * 2);
         fill(255);
-        text(i, x + pointRadius + 2, y + 5);
+        //text(i, x + pointRadius + 2, y + 5);
 }
 }
 
