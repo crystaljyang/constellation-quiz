@@ -125,33 +125,37 @@ function undoLastSelection() {
    console.log("After Undo:", selectedPoints);
 }
 
-
 function calculateAccuracy(correctMatches, input) {
-    console.log(correctMatches);
-    console.log(input);
-    for(let i=0; i<correctMatches.length;i++){
-      if (correctMatches[i] !== input[i]){
-        console.log("Yes");
-      }
-      else {
-        console.log("UGH");
-      }
+    let holder = 0;
+    let missingPoint = 0;
+    let wrongPoint = 0;
+    for (let i = 0; i < correctMatches.length; i++) {
+        if (Array.isArray(correctMatches[i]) && Array.isArray(input[i])) {
+            input[i].forEach(item => {
+                if (correctMatches[i].includes(item)) {
+                    correctPoint++;
+                }
+                else{
+                    wrongPoint++;
+                }
+            });
+            correctMatches[i].forEach(item => {
+                if (input[i].includes(item)) {
+                    holder++;
+                }
+                else{
+                    holder++;
+                    missingPoint++;
+                }
+            });
+        }
     }
-    const correctSet = new Set(
-        correctMatches.flatMap(correctMatch =>
-            correctMatch.map(pair => pair.sort((a, b) => a - b).join(','))
-        )
-    );
-    const inputFormatted = input.map(pair =>
-        pair.sort((a, b) => a - b).join(',')
-    );
-    const correctCount = inputFormatted.reduce((count, pair) => {
-        return count + (correctSet.has(pair) ? 1 : 0);
-    }, 0);
-    const accuracy = (correctCount / input.length) * 100;
+    let accuracy = (((correctPoint*.5) - (missingPoint*.25)-(wrongPoint*.25)) / (holder*.5)) * 100;
+    if (accuracy <= 0){
+      accuracy = 0;
+    }
     return accuracy.toFixed(0);
 }
-
 function buildConnectionMap(points, pointsSelected) {
     const connectionMap = new Array(points.length).fill(null).map(() => []);
     for (let i = 0; i < pointsSelected.length - 1; i++) {
@@ -254,8 +258,8 @@ function submitPoints() {
                     window.location.href = '/summary';
                 }
             }, 3000);
-    
-        
+
+
       } else {
         // Handle errors or unsuccessful attempts here
         console.error('Failed to submit results:', data.message);
