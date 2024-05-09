@@ -125,15 +125,18 @@ function undoLastSelection() {
    console.log("After Undo:", selectedPoints);
 }
 
+
 function calculateAccuracy(correctMatches, input) {
     let holder = 0;
+    let correctPoint = 0;
     let missingPoint = 0;
     let wrongPoint = 0;
     for (let i = 0; i < correctMatches.length; i++) {
         if (Array.isArray(correctMatches[i]) && Array.isArray(input[i])) {
+            // Iterate through input[i] and check if each element is in correctMatches[i]
             input[i].forEach(item => {
                 if (correctMatches[i].includes(item)) {
-                    correctPoint++;
+                    correctPoint++; // Increment correctmark for each found item
                 }
                 else{
                     wrongPoint++;
@@ -156,6 +159,7 @@ function calculateAccuracy(correctMatches, input) {
     }
     return accuracy.toFixed(0);
 }
+
 function buildConnectionMap(points, pointsSelected) {
     const connectionMap = new Array(points.length).fill(null).map(() => []);
     for (let i = 0; i < pointsSelected.length - 1; i++) {
@@ -250,15 +254,6 @@ function submitPoints() {
         console.log('Response from server:', data.message);
         if (data.status === "success") {
             currentId++;
-            // Redirect after 5 seconds
-            setTimeout(() => {
-                if (currentId < 5) {
-                    window.location.href = `/view/${currentId}`;
-                } else {
-                    window.location.href = '/summary';
-                }
-            }, 3000);
-
 
       } else {
         // Handle errors or unsuccessful attempts here
