@@ -243,9 +243,19 @@ function submitPoints() {
       })
   }).then(response => response.json())
     .then(data => {
-      console.log('Response from server:', data.message);
-      if (data.status === "success") {
-        currentId++;
+        console.log('Response from server:', data.message);
+        if (data.status === "success") {
+            currentId++;
+            // Redirect after 5 seconds
+            setTimeout(() => {
+                if (currentId < 5) {
+                    window.location.href = `/view/${currentId}`;
+                } else {
+                    window.location.href = '/summary';
+                }
+            }, 3000);
+    
+        
       } else {
         // Handle errors or unsuccessful attempts here
         console.error('Failed to submit results:', data.message);
