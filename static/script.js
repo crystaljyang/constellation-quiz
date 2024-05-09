@@ -222,10 +222,18 @@ function findInBoth(answers, linesDrawn) {
     }
     return { blue, orange, red };
 }
+function updateContentsAndShowButton(grade) {
+    // Update the instructional content
+    document.querySelector('.qinstr').innerHTML = "<div class='fbsbg'>Grade: "+grade+"%</div>";
+    document.querySelector('.qnote').innerHTML = "<b>Note:</b>&nbsp; Red: Doesn't exist \n Blue: Correct \n Orange: Missing";
+}
+
+document.addEventListener('DOMContentLoaded', setupEventListeners);
+
 function submitPoints() {
   let connections = buildConnectionMap(points, selectedPoints);
   console.log(connections);
-  let isSuccess = calculateAccuracy([correctMatch], [connections]);
+  let isSuccess = calculateAccuracy(correctMatch, connections);
   selectedPointsuser= selectedPoints;
   let dl = drawLines(selectedPoints);
   let draw = findInBoth(correctMatch,dl);
@@ -234,6 +242,8 @@ function submitPoints() {
   wrong = draw.red;
   let currentId = consl;
   interactionEnabled = false;
+  console.log(isSuccess);
+  updateContentsAndShowButton(isSuccess);
   //Reset game state
   moves = 0;
   selectedPoints = [];
@@ -253,8 +263,22 @@ function submitPoints() {
     .then(data => {
         console.log('Response from server:', data.message);
         if (data.status === "success") {
-            currentId++;
-
+          var nextButton = document.getElementById('butt-Next');
+          if (nextButton.style.display === 'none') {
+              nextButton.style.display = 'block';
+          }
+          currentId++;
+          var nextButton = document.getElementById('butt-Next');
+          if (nextButton) {
+              nextButton.addEventListener('click', function() {
+                if (currentId<5){
+                   window.location.href = `/view/${currentId}`;
+                }
+                else {
+                  window.location.href = '/summary';
+                }
+            });
+          }
       } else {
         // Handle errors or unsuccessful attempts here
         console.error('Failed to submit results:', data.message);
