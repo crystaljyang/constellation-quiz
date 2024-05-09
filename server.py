@@ -155,13 +155,14 @@ def summary():
     else:
         score = 0
 
-    print(scoreBoard)
+    #print(scoreBoard)
     data_dict = {
         'page': 'summary',
         'time': datetime.datetime.now()
     }
     userInput.append(data_dict)
     score = str(int(score))+'%'
+    print(userInput)
     return render_template('summary.html', score=score, scoreBoard=scoreBoard)
 
 @app.route('/hello')

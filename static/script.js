@@ -24,10 +24,12 @@ function setup() {
 }
 
 function draw() {
+  if (typeof constellationData !== 'undefined') {
     background(imgBig);
     displayPoints();
     displayConnected();
     displayElastic();
+  }
 }
 
 
@@ -228,8 +230,6 @@ function updateContentsAndShowButton(grade) {
     document.querySelector('.qnote').innerHTML = "<b>Note:</b>&nbsp; Red: Doesn't exist \n Blue: Correct \n Orange: Missing";
 }
 
-document.addEventListener('DOMContentLoaded', setupEventListeners);
-
 function submitPoints() {
   let connections = buildConnectionMap(points, selectedPoints);
   console.log(connections);
@@ -264,11 +264,12 @@ function submitPoints() {
         console.log('Response from server:', data.message);
         if (data.status === "success") {
           var nextButton = document.getElementById('butt-Next');
+          var submitButton = document.getElementById('butt-Submit');
           if (nextButton.style.display === 'none') {
               nextButton.style.display = 'block';
+              submitButton.style.display = 'none';
           }
           currentId++;
-          var nextButton = document.getElementById('butt-Next');
           if (nextButton) {
               nextButton.addEventListener('click', function() {
                 if (currentId<5){
